@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- CDN 추가 -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- CDN 끝 -->
+  <script type="text/babel">
+    const root = document.getElementById("root");
+    let counter = 0;
+
+    function countUp() {
+        counter = counter + 1;
+        render();
+    }
+    function App() {
+        const [counter2, modifier] = React.useState(0);
+        const countUp2 = () => {
+            //modifier(counter2 + 1); //아래 방식을 권장한다.
+            modifier((counter2) => counter2 + 1);
+        };
+        console.log("나도 바뀌어요 왜냐면 전체를 다시 render하기 때문이죠"+counter2);
+        return (
+            <div>
+                <h3>Total Clicks: {counter2}</h3>
+                <button onClick={countUp2}>Click me = recommend {counter2}</button>
+            </div>
+        );
+    }
+   
+    function render() {
+        ReactDOM.render(<Container/>, root);
+    }
+    const Container = () => (
+      <div>
+        <h3>Total Clicks: {counter}</h3>
+        <button onClick={countUp}>Click me = don't recommend {counter}</button>
+        <App/>
+      </div>
+    );
+    ReactDOM.render(<Container/>, root);
+    //React에서 변수를 관리하는 방법은 state를 이용한다.
+    
+    //countUp() 방식은 state를 이용하지 않고 다시 render하는 비추천 방식이다.
+    //let과 const의 차이 - let은 값이 변할 수 있고 재선언은 불가능하다. const는 값이 변할 수 없고 재선언도 불가능하다.
+    //countUp2() 방식은 state를 이용한 권장하는 방식이다. state를 이용하면서도 기존의 setState가 아닌 useState를 사용했는데 해당 방식은 react hook이라고 불리며 2019년에 react버전 16.8에서부터 나왔다. 기존의 setState는 state를 밖에서 수정할 수 있었는데 이제는 함수형 컴포넌트(App()이라고 설정된 함수) 안에 state를 만들고 수정할 수 있다고 한다.
+    //html파일에선 React.useState();라고 작성하지만 create-react-app을 쓰는 순간부터 import {useState} from "react";를 해주면 그냥 useState();로도 사용 가능하다.
+  </script>
+</html>

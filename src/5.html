@@ -1,0 +1,11 @@
+    // create-react-app과 리액트의 CSS 사용법, propTypes에 대해서 배운다.
+    
+    // 이제부턴 html 파일이 아닌 create-react-app 에 대한 실습이다. 개발 서버 접근, 자동 새로고침의 장점이 있다.
+
+    // node.js 설치 -> cmd에서 node -v로 버전 확인 -> npx create-react-app test 라고 만듬. code test 입력하면 vscode로 열림 -> npm start 하면 끝 -> localhost:3000 접속 시 index.html이 열리는데 이건 apache에 기본 설정되어있는 최초 열람 파일이다 해당 파일을 지우면 index.php를 그 다음으로 찾는다.(근데 이건 node.js니까 apache는 아니지만 웬만하면 다 공통으로 index.html로 가나보다.) 그리고 index.js를 연동하게되는데 해당 파일에는 <React.StrictMode><App /></React.StrictMode>,document.getElementById('root') 가 먼저 써져있다. root는 index.html에 있는 root에 넣어주라는 뜻이다. 근데 index.html과 index.js를 연결하는 코드는 어디에도 없지만 웹팩에 의해 webpack.config.dev.js파일에 해당 파일들을 연결하는 코드가 작성되어있다.
+
+    // export default Button; - 첫 작업물을 만들기 위해 src폴더 밑에 Button.js를 만든다. 하단부에 export default Button;의 뜻은 다른 컴포넌트에서 사용이 가능하다는 의미다. 
+
+    // PropType - prop으로 전달하는 value는 타입이 없어서 뭘 던져도 에러가 나지 않지만 propType.js를 다운받거나 npm i prop-types를 입력 후 사용하면 prop마다 타입을 줄 수 있어서(String, Number, isRequired 등등) 콘솔에서 해당 룰에 어긋나는 타입은 에러가 뜨게 된다. Button.js파일 하단에는 Button의 propTypes가 설정되어있다. 그리고 import PropTypes from "prop-types"; 라고 등록을 해줘야한다. 근데 컴포넌트마다 다 등록해야하나 이걸..?
+
+    // 그리고 리액트에서 css 사용하는 방법은 css단위도 분할 시킨다. 보통의 css는 하나의 거대한 css파일을 만들어 통째로 import하거나 그러기 싫으면 컴포넌트 안에 직접 박는 방법이지만 react에선 Button.module.css로 뒤에 module.css를 붙여서 모듈화된 css를 사용한다. 그리고 jsx에서 ClassName={styles.btn} 과 같은 방식으로 사용한다.(Button.js파일 참조) 해당 방식의 장점은 매번 클래스명을 외워서 사용하던 기존 방식과 달리 개발자 도구에서 확인해보면 매번 랜덤한 클래스명을 주게 돼서 다른 *.module.css에서 같은 이름의 css를 쓰더라도 에러가 나지 않는다는 것이다.
