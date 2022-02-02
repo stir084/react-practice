@@ -1,7 +1,27 @@
-// redux 실습
+// redux
 
 - React는 Component를 하위 계층으로 계속 붙이는 형태로 개발되는데, 이때 변수를 전달할 떄 prop을 사용한다.
 - prop이 과도하게 많아지면 복잡성이 증대해지므로 공통 변수를 관리하기 위한 기술로서 redux를 사용한다
 - npm i redux react-redux로 설치
 - index.js에 Provider, createStore 등으로 Redux 초기 설정
 - ReduxTest.js에서 store에 저장된 데이터 useSelector로 사용
+- 값을 변경하기 위해선 각각의 컴포넌트에서 수정을 하면 나중에 수정 작업이 어려워서 reducer에 요청을 통해 계산을 수행한다. 즉 reducer는 여러 계산 방법을 담고 있는 함수
+- 요청을 하려면 ReduxTest.js에서 useDispatch를 사용해서 사용함.
+
+- reducer, dispatch, action이라는 용어를 쓴다
+- reducer : 여러가지 action(연산 방식)을 담은 함수
+- dispatch : reducer에 action을 넣어 실행해달라고 요청하는 함수
+- action : action의 이름과 값을 전달하는 매개변수
+
+
+//----------------------------------------
+
+- useReducer와 contextApi
+- ReducerTest에 테스트 코드를 적어놨고 contextApi의 기능은 적어 놓지 않았다.
+- useReducer는 useState처럼 상태 관리를 하는 기능을 하며 useState보다 계산 방식이 더 많을 경우 쓴다. 
+- contextApi는 전역 공유 Store를 만들어주는 기능이다. 
+- useReducer와 contextApi를 합치면 redux의 기능을 할 수 있다.
+
+Context API에는 Provider, Consumer 개념이 있는데(Redux에도 있음) 
+Provider는 context를 구독하는 하는 컴포넌트들에게 context 변화를 알려주고 Consumer는 Provider가 전달한 값을
+사용한다.
