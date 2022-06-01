@@ -97,9 +97,11 @@
     }
                 ReactDOM.render(<App />, root);
     // state에 대한 실습이다.
+    
+    // JSX에선 for나 class같은 javascript가 이미 선점하고 있는 문법은 JSX에서 사용하지 못한다. 그럼에도 불구하고 사용할 때 react.production.min.js를 사용하면 에러가 나진 않지만 react.development.min.js를 사용하면 에러가 발생한다. 그래서 development.min.js를 사용할 것에 대비해 두번째 label처럼 class는 className, for는 forName으로 JSX에서 사용해줘야 한다. 그렇지 않으면 콘솔에 Did you mean 'htmlFor'?와 같은 에러가 뜬다.
+    // onChange할 때마다 setMinutes가 실행되면서 전체 render가 다시 된다. 그래서 input id="hours"의 값도 변경된다.
+
     // label의 for값이 input의 id와 묶이면 label을 클릭해도 input이 클릭된다.
-    // 다만 JSX에선 for나 class같은 javascript가 이미 선점하고 있는 문법은 JSX에서 사용하지 못한다. react.production.min.js를 사용하면 에러가 나진 않지만 react.development.min.js를 사용하면 에러가 발생한다. 그래서 development.min.js를 사용할 것에 대비해 두번째 label처럼 class는 className, for는 forName으로 JSX에서 사용해줘야 한다. 그렇지 않으면 콘솔에 Did you mean 'htmlFor'?와 같은 에러가 뜬다.
-    //onChange할 때마다 setMinutes가 실행되면서 전체 render가 다시 된다. 그래서 input id="hours"의 값도 변경된다.
 </script>
 
 </html>

@@ -29,7 +29,7 @@
         </button>
       );
     }
-    // 위의 두 컴포넌트 선언 방식은 JSX를 사용했고 Arrow Function은 return을 해주지 않아도 알아서 return 한다.
+    // Arrow Function의 사용 방법 - https://stir.tistory.com/27
     const Container = (
       <div>
         <button>Hello</button>
@@ -38,17 +38,10 @@
         </div>
     );
     // 컴포넌트 안에 다른 컴포넌트를 넣기 위해선 항상 앞은 '대문자'(ex. Title)로 시작해야하며 '함수형'으로 선언되어있어야 한다.
-    //ReactDom.render(<Container/>, root); 처럼 함수형 컴포넌트를 삽입할 경우에 함수형이 아니라면 개발자 도구에 Minified React error #130; 에러가 발생한다. Minified React Error 에러 옆에 주소를 클릭하면 하단 빨간 글씨에 에러 원인을 알 수 있다.
+    
     ReactDOM.render(Container, root);
+    // ReactDom.render(<Container/>, root);처럼 내부에 함수형 컴포넌트를 삽입할 경우에 함수형이 아니라면 개발자 도구에 Minified React error #130; 에러가 발생한다. Minified React Error 에러 옆에 주소를 클릭하면 하단 빨간 글씨에 에러 원인을 알 수 있다.
     // ReactDOM.render(btn, root);는 btn이라는 리액트 컴포넌트를 root라는 컴포넌트 안에 넣어서 보여주라는 뜻이다.
-    // 코드정렬 하려면 VSCODE 사용 시 왼쪽 네모 4개 버튼(Ctrl + Shift + X)눌러서 Prettier 다운 후 코드 정렬할 때마다 Alt + Shift + F 눌러주면 된다. 아니면 다운받지않고 Ctrl + K -> Ctrl + F 해주면 된다.
-    // VSCode 자동 줄 바꿈 설정을 하는게 좋다.
-    // Ctrl + X = 한줄 지우기 
-    // Alt + Shift + 화살표 = 한줄 복사
-    // Alt + 화살표 = 한줄 이동
-    // Alt + Click = 커서 여러개 등록
-    // Alt + Shift + Drag = 마우스 이동 경로에 커서 
-    // CTRL + ` 하면 터미널 열고 닫을 수 있음
-    // CTRL + Shift + F = 문자 전체파일 검색
+   
   </script>
 </html>

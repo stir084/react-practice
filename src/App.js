@@ -6,15 +6,12 @@ import Home from './Home';
 import Detail from './Detail';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
-  
+
   // return (
   //   <div>
   //     {/* <Button test="안녕하세요"/>5.html */}
   //     {/* <Effect/> */} 6.html
   //     {/* <ToDoList/> */} 7.html
-
-      
-      
   //   </div>
   // );
   //----------------------------------------------------

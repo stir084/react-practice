@@ -16,6 +16,9 @@ function Home() {
   useEffect(() => {
     getMovies();
   }, []);
+  window.addEventListener('scroll', (e) => {
+    console.log("test");
+  });
   return (
     <div>
       {loading ? (
